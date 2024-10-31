@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+    <head>
+        <script>
+            fetch("http://jotauve.es:3000/colecciones")
+            .then(function(response){
+                return response.json()
+            })
+            .then(function(datos){
+                console.log(datos)
+            })
+        </script>
+        <style>
+            :root{
+                --primario: #6F4E37;
+                --texto:#4e3927;
+                --secundario1:#ffeedf;
+                --secundario2:#ffdebf;
+            }
+            body,html{
+                font-family: sans-serif;
+                color:var(--texto);
+                background:var(--secundario1);
+                height:100%;
+                padding:0px;
+                margin:0px;
+            }
+            header,nav{
+                background:var(--primario);
+                color:var(--secundario1);
+            }
+            h1{
+                padding:0px;
+                margin:0px;
+            }
+            main{
+                height:100%;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                align-items: stretch;
+                align-content: stretch;
+            }
+            section{
+                
+            }
+            nav{
+                width:20%;
+            }
+            section{
+                width:80%
+            }
+            header{
+                box-sizing: border-box;
+                padding:20px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Panel de control NodeMongo</h1>
+        </header>
+        <main>
+            <nav>hola
+            </nav>
+            <section>
+            </section>
+        </main>
+    </body>
+</html>

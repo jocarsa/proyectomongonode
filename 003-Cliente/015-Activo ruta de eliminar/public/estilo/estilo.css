@@ -1,0 +1,94 @@
+:root{
+    --primario: #6F4E37;
+    --texto:#4e3927;
+    --secundario1:#ffeedf;
+    --secundario2:#ffdebf;
+}
+body,html{
+    font-family: sans-serif;
+    color:var(--secundario1);
+    background:var(--primario);
+    height:100%;
+    padding:0px;
+    margin:0px;
+}
+header,nav{
+    background:var(--primario);
+    color:var(--secundario1);
+}
+h1{
+    padding:0px;
+    margin:0px;
+}
+main{
+    height:100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
+}
+section{
+    background:var(--secundario1);
+    color:var(--primario);
+    border-radius:20px 0px 0px 0px;
+}
+nav{
+    width:20%;
+    box-sizing: border-box;
+    padding:20px;
+}
+nav p{
+    border-bottom:1px solid var(--secundario2);
+    padding-bottom:20px;
+}
+section{
+    width:80%
+}
+header{
+    box-sizing: border-box;
+    padding:20px;
+}
+article {
+    width: 200px;
+    height: 300px;
+    background-color: #f9f9f9;
+    border: 2px solid #ccc;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-top-left-radius: 0; /* Keep the top-left corner sharp */
+    display:inline-block;
+    margin:10px;
+
+    padding:10px;
+    font-family: monospace;
+    font-size:10px;
+    vertical-align: bottom;
+    position:relative;
+  }
+
+  /* Creating the chamfered corner and fold effect */
+article::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background-color: #e0e0e0; /* Slightly darker color for the fold */
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+article button{
+    position:absolute;
+    top:-10px;
+    right:-10px;
+    width:20px;
+    height:20px;
+    background:red;
+    color:white;
+    text-align:center;
+    border:none;
+    border-radius:20px;
+    font-weight:bold;
+}

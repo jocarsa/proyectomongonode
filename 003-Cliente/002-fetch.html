@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+    <head>
+        <script>
+            fetch("http://jotauve.es:3000/colecciones")
+            .then(function(response){
+                return response.json()
+            })
+            .then(function(datos){
+                console.log(datos)
+            })
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
