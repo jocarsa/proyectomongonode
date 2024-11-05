@@ -46,6 +46,7 @@ nav{
 nav p{
     border-bottom:1px solid var(--secundario2);
     padding-bottom:20px;
+    cursor:pointer;
 }
 section{
     width:80%
@@ -101,6 +102,7 @@ article button{
     border:none;
     border-radius:20px;
     font-weight:bold;
+    cursor:pointer;
 }
 header button{
     padding:10px;

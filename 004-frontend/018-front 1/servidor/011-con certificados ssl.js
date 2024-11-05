@@ -1,14 +1,14 @@
-// npm install pug cors mongodb
 const express = require('express');
+const https = require('https');
 const { MongoClient, ObjectId } = require('mongodb');
 const cors = require('cors');
+const fs = require('fs');
 
 const app = express();
 const PORT = 443;
 
 // Enable CORS
-app.use(cors()); // To allow all origins
-// Uncomment the following to restrict to a specific origin
+app.use(cors()); // Allow all origins or restrict to a specific one if needed
 /*
 app.use(cors({
   origin: 'https://jocarsa.com'
@@ -26,7 +26,7 @@ const client = new MongoClient(uri);
 
 // Route for the Angular built site
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/dist/index.html'); // Adjust the path if necessary
+  res.sendFile(__dirname + '/dist/index.html');
 });
 
 // Route to render the Pug template with a parameter
@@ -54,11 +54,11 @@ app.get('/colecciones', async (req, res) => {
 
 // Route to fetch documents from a specific collection
 app.get('/coleccion/:nombre', async (req, res) => {
-  const nombreColeccion = req.params.nombre; // Get collection name from URL
+  const nombreColeccion = req.params.nombre;
   try {
     await client.connect();
     const database = client.db('empresa');
-    const collection = database.collection(nombreColeccion); // Use collection name
+    const collection = database.collection(nombreColeccion);
     const documentos = await collection.find({}).toArray();
     res.send(documentos);
   } catch (error) {
@@ -71,12 +71,12 @@ app.get('/coleccion/:nombre', async (req, res) => {
 
 // Route to delete a document by identifier
 app.get('/eliminar/:coleccion/:identificador', async (req, res) => {
-  const nombreColeccion = req.params.coleccion; // Get collection name from URL
+  const nombreColeccion = req.params.coleccion;
   const identificador = req.params.identificador;
   try {
     await client.connect();
     const database = client.db('empresa');
-    const collection = database.collection(nombreColeccion); // Use collection name
+    const collection = database.collection(nombreColeccion);
     const result = await collection.deleteOne({ "_id": new ObjectId(identificador) });
     res.send(result);
   } catch (error) {
@@ -87,7 +87,13 @@ app.get('/eliminar/:coleccion/:identificador', async (req, res) => {
   }
 });
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+// Configure HTTPS server
+const httpsServer = https.createServer({
+  cert: fs.readFileSync('www.jotauve.es_ssl_certificate.cer'),
+  key: fs.readFileSync('www.jotauve.es_private_key.key')
+}, app);
+
+// Start the HTTPS server
+httpsServer.listen(PORT, () => {
+  console.log(`Server is running on https://localhost:${PORT}`);
 });

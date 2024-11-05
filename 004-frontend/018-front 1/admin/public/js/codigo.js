@@ -1,6 +1,6 @@
 var coleccion = ""
 window.onload = function(){
-    fetch("http://jotauve.es:80/colecciones")
+    fetch("https://jotauve.es/colecciones")
     .then(function(response){
         return response.json()
     })
@@ -15,7 +15,7 @@ window.onload = function(){
             elementonavegacion.onclick = function(){
                 coleccion = this.textContent
                 console.log("Vamos a cargar los elementos de "+this.textContent)
-                fetch("http://jotauve.es:80/coleccion/"+this.textContent)
+                fetch("https://jotauve.es/coleccion/"+this.textContent)
                 .then(function(response){
                     return response.json()
                 })
@@ -43,7 +43,7 @@ window.onload = function(){
                         documento.appendChild(cerrar);
                         cerrar.onclick = function(){
                             console.log("Eliminamos el elemento: "+identificador)
-                            let url = "http://jotauve.es:80/eliminar/"+coleccion+"/"+identificador
+                            let url = "https://jotauve.es/eliminar/"+coleccion+"/"+identificador
                             console.log(url)
                             fetch(url)
                             this.parentElement.remove()
