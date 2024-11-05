@@ -2,9 +2,10 @@
     <p>Aqui van los productos</p>
     <div *ngIf="jsonData" class="productos">
       <article *ngFor="let dato of jsonData">
+          <img src="cafe.webp">
         <h2>{{ dato.nombre }}</h2>
         <p>{{ dato.descripcion }}</p>
-        <p>{{ dato.precio }}</p>
+        <p><button>{{ dato.precio }} €</button></p>
       </article>
     </div>
 </main>

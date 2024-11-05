@@ -1,5 +1,19 @@
 .productos{
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap:20px;
+}
+article{
+   width:100%;
+}
+article img{
+    width:100%;
+}
+article button{
+    width:100%;
+    background:var(--primario);
+    border:none;
+    padding:10px;
+    border-radius:20px;
+    color:white;
 }
