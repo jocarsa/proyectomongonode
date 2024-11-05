@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --primario: #6F4E37;
+    --texto:#4e3927;
+    --secundario1:#ffeedf;
+    --secundario2:#ffdebf;
+}
+body{
+   background:var(--primario); 
+}
+header,section,main,footer{
+    background:white;
+    padding:20px;
+    width:800px;
+    margin:auto;
+    text-align:center;
+    font-family:sans-serif;
+}
