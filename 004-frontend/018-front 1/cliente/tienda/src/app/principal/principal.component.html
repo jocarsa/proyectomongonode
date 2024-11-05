@@ -1,3 +1,10 @@
 <main>
     <p>Aqui van los productos</p>
+    <div *ngIf="jsonData" class="productos">
+      <article *ngFor="let dato of jsonData">
+        <h2>{{ dato.nombre }}</h2>
+        <p>{{ dato.descripcion }}</p>
+        <p>{{ dato.precio }}</p>
+      </article>
+    </div>
 </main>
