@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class DameproductosService {
 
    constructor(private http: HttpClient) { }
-    getData(): Observable<any> {
+    dameDatos(): Observable<any> {
     return this.http.get<any>('http://jotauve.es:3000/coleccion/productos');
   }
 }
