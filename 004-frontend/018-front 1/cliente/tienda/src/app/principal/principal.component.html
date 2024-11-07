@@ -19,8 +19,11 @@
         <p>{{ item.precio }} €</p>
       </li>
     </ul>
+    <p><strong>Total: {{ totalPedido }} €</strong></p>
     <input [(ngModel)]="nombre" placeholder="Nombre">
     <input [(ngModel)]="apellidos" placeholder="Apellidos">
-    <button (click)="enviarCliente()">Enviar</button>
+    <input [(ngModel)]="email" placeholder="Email">
+    <input [(ngModel)]="direccion" placeholder="Dirección">
+    <button (click)="enviarCliente()">Enviar Pedido</button>
   </div>
 </main>

@@ -6,14 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EnviarDatosService {
-  private apiUrl = 'https://jotauve.es/insertarCliente'; // URL del servidor
+  private apiUrl = 'https://jotauve.es/insertarPedido';
 
   constructor(private http: HttpClient) {}
 
-  enviarCliente(nombre: string, apellidos: string): Observable<any> {
-    const body = { nombre, apellidos };
+  enviarPedido(pedido: any): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-
-    return this.http.post<any>(this.apiUrl, body, { headers });
+    return this.http.post<any>(this.apiUrl, pedido, { headers });
   }
 }
