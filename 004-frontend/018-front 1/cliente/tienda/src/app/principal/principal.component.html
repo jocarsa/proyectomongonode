@@ -5,10 +5,20 @@
       <img src="cafe.webp">
       <h2>{{ dato.nombre }}</h2>
       <p>{{ dato.descripcion }}</p>
-      <p><button>{{ dato.precio }} €</button></p>
+      <p>
+        <button (click)="agregarAlCarrito(dato)">{{ dato.precio }} €</button>
+      </p>
     </article>
   </div>
   <div id="carrito">
+    <h3>Carrito</h3>
+    <ul>
+      <li *ngFor="let item of carrito">
+        <h4>{{ item.nombre }}</h4>
+        <p>{{ item.descripcion }}</p>
+        <p>{{ item.precio }} €</p>
+      </li>
+    </ul>
     <input [(ngModel)]="nombre" placeholder="Nombre">
     <input [(ngModel)]="apellidos" placeholder="Apellidos">
     <button (click)="enviarCliente()">Enviar</button>

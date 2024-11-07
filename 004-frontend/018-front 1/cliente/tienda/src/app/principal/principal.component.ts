@@ -16,6 +16,7 @@ export class PrincipalComponent implements OnInit {
   jsonData: any;
   nombre: string = '';
   apellidos: string = '';
+  carrito: any[] = []; // Array para almacenar productos en el carrito
 
   constructor(
     private dameproductosService: DameproductosService,
@@ -30,6 +31,10 @@ export class PrincipalComponent implements OnInit {
     this.dameproductosService.dameDatos().subscribe(datos => {
       this.jsonData = datos;
     });
+  }
+
+  agregarAlCarrito(producto: any) {
+    this.carrito.push(producto); // Agregar producto al carrito
   }
 
   enviarCliente() {
