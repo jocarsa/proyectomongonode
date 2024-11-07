@@ -1,0 +1,1 @@
+:root{--primario: #6F4E37;--texto:#4e3927;--secundario1:#ffeedf;--secundario2:#ffdebf}body{background:var(--primario)}header,section,main,footer{background:#fff;padding:50px;width:800px;margin:auto;text-align:center;font-family:sans-serif}
