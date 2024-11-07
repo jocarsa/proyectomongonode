@@ -1,14 +1,16 @@
 <main>
-    <p>Aqui van los productos</p>
-    <div *ngIf="jsonData" class="productos">
-      <article *ngFor="let dato of jsonData">
-          <img src="cafe.webp">
-        <h2>{{ dato.nombre }}</h2>
-        <p>{{ dato.descripcion }}</p>
-        <p><button>{{ dato.precio }} €</button></p>
-      </article>
-    </div>
-    <div id="carrito">
-        
-    </div>
+  <p>Aquí van los productos</p>
+  <div *ngIf="jsonData" class="productos">
+    <article *ngFor="let dato of jsonData">
+      <img src="cafe.webp">
+      <h2>{{ dato.nombre }}</h2>
+      <p>{{ dato.descripcion }}</p>
+      <p><button>{{ dato.precio }} €</button></p>
+    </article>
+  </div>
+  <div id="carrito">
+    <input [(ngModel)]="nombre" placeholder="Nombre">
+    <input [(ngModel)]="apellidos" placeholder="Apellidos">
+    <button (click)="enviarCliente()">Enviar</button>
+  </div>
 </main>
